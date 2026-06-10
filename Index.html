@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Aswad – Freelance Graphic Designer. Premium visual design, branding, and creative solutions for modern brands."/>
+  <meta name="keywords" content="Graphic Designer, Freelance, Branding, Social Media Design, Aswad, Portfolio"/>
+  <title>Aswad | Premium Freelance Graphic Designer</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Fontshare: Satoshi -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blue: {
+              400: '#60a5fa',
+              500: '#3d8bff',
+              600: '#2563eb',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#050810] text-white overflow-x-hidden">
+
+  <!-- LOADING SCREEN -->
+  <div id="loader" class="fixed inset-0 z-[9999] bg-[#050810] flex items-center justify-center">
+    <div class="loader-content text-center">
+      <div class="loader-logo">
+        <img src="Aswad Logo.png" alt="Aswad Designs" class="loader-logo-img"/>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <div class="loader-pct" id="loaderPct">0%</div>
+    </div>
+  </div>
+
+  <!-- CURSOR GLOW -->
+  <div id="cursorGlow"></div>
+  <div id="cursorDot"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 py-5 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <!-- Logo Image -->
+      <a href="#home" class="nav-logo-wrap">
+        <img src="Aswad Logo.png" alt="Aswad Designs" class="nav-logo-img"/>
+      </a>
+      <ul class="hidden md:flex items-center gap-8">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 btn-primary">
+        <span>Connect Me</span>
+        <i class="ri-arrow-right-up-line"></i>
+      </a>
+      <button id="menuBtn" class="md:hidden text-white text-2xl focus:outline-none z-50">
+        <i class="ri-menu-3-line" id="menuIcon"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu hidden md:hidden">
+      <ul class="flex flex-col items-center gap-6 py-10">
+        <li><a href="#home" class="mobile-nav-link">Home</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#services" class="mobile-nav-link">Services</a></li>
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        <li><a href="#contact" class="btn-primary mt-2">Hire Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+    <!-- Background Glows -->
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+    <!-- Grid Lines -->
+    <div class="hero-grid"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <!-- Badge -->
+      <div class="hero-badge reveal-up" data-delay="0">
+        <span class="badge-dot"></span>
+        Open To Work
+      </div>
+
+      <!-- Heading -->
+      <h1 class="hero-heading reveal-up" data-delay="1">
+        <span class="block overflow-hidden"><span class="inline-block hero-line">Creative Graphic</span></span>
+        <span class="block overflow-hidden"><span class="inline-block hero-line">Designs That</span></span>
+        <span class="block overflow-hidden"><span class="inline-block hero-line text-gradient">Elevate Brands</span></span>
+      </h1>
+
+      <!-- Sub -->
+      <p class="hero-sub reveal-up" data-delay="2">
+        I help businesses, creators, and modern brands stand out through<br class="hidden md:block"/>
+        impactful visual design and premium creative solutions.
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10 reveal-up" data-delay="3">
+        <a href="#projects" class="btn-primary text-lg px-8 py-4">
+          <i class="ri-eye-line mr-2"></i>View Projects
+        </a>
+        <a href="#contact" class="btn-outline text-lg px-8 py-4">
+          <i class="ri-send-plane-line mr-2"></i>Hire Me
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST / STATS ===== -->
+  <section class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="stats-grid">
+        <div class="stat-card reveal-up" data-delay="0">
+          <div class="stat-num" data-count="100">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card reveal-up" data-delay="1">
+          <div class="stat-num" data-count="75">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-card reveal-up" data-delay="2">
+          <div class="stat-num" data-count="2">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card reveal-up" data-delay="3">
+          <div class="stat-num" data-count="15">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Creative Solutions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="py-24 relative overflow-hidden">
+    <div class="section-glow"></div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+        <p class="section-sub">A curated selection of my finest creative work across multiple disciplines.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs reveal-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+        <button class="filter-btn" data-filter="social">Social Media</button>
+        <button class="filter-btn" data-filter="posters">Posters</button>
+        <button class="filter-btn" data-filter="advertising">Advertising</button>
+        <button class="filter-btn" data-filter="ui">UI Design</button>
+      </div>
+    
+
+      <div class="projects-grid" id="projectsGrid">
+
+  <!-- BRANDING -->
+  <div class="project-card reveal-up"
+       data-category="branding"
+       data-delay="0"
+       data-title="Fradel & Spies Brand Identity"
+       data-desc="Luxury fashion brand identity system with logo, typography and premium visual direction."
+       data-tag="Branding"
+       data-image="Brand Identity Design.png">
+
+    <div class="project-img-wrap">
+
+      <div class="project-img">
+        <img src="Brand Identity Design.png" alt="Branding Project">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">Branding</span>
+      <h3 class="project-name">Fradel & Spies</h3>
+      <p class="project-desc-short">
+        Complete luxury branding system.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL MEDIA 1 -->
+  <div class="project-card reveal-up"
+       data-category="social"
+       data-delay="1"
+       data-title="Marketing Agency Carousel Design"
+       data-desc="Modern carousel content crafted to boost brand authority and reach."
+       data-tag="Social Media"
+       data-image="Social Media Carousel.png">
+
+    <div class="project-img-wrap">
+
+      <div class="project-img">
+        <img src="Social Media Carousel.png" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">Social Media</span>
+      <h3 class="project-name">Marketing Agency Carousel Design</h3>
+      <p class="project-desc-short">
+       Modern carousel content crafted to boost brand authority and reach.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL MEDIA 2 -->
+  <div class="project-card reveal-up"
+       data-category="social"
+       data-delay="2"
+       data-title="Luxury Skincare Campaign"
+       data-desc="Premium beauty visual designed for modern skincare brands."
+       data-tag="Social Media"
+       data-image="SkinCare Post.png">
+
+    <div class="project-img-wrap">
+      <div class="project-img">
+        <img src="SkinCare Post.png" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">Social Media</span>
+      <h3 class="project-name">Luxury Skincare Campaign</h3>
+      <p class="project-desc-short">
+        Premium beauty visual designed for modern skincare brands.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL MEDIA 3 -->
+  <div class="project-card reveal-up"
+       data-category="social"
+       data-delay="3"
+       data-title="Fashion Brand Promotion Post"
+       data-desc="Trendy social creatives tailored for fashion-focused audiences."
+       data-tag="Social Media"
+       data-image="Fashion Brand Promotion Post.png">
+
+    <div class="project-img-wrap">
+      <div class="project-img">
+        <img src="Fashion Brand Promotion Post.png" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">Social Media</span>
+      <h3 class="project-name">Fashion Brand Promotion Post</h3>
+      <p class="project-desc-short">
+        Trendy social creatives tailored for fashion-focused audiences.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL MEDIA 4 -->
+  <div class="project-card reveal-up"
+       data-category="social"
+       data-delay="4"
+       data-title="Real Estate Social Creatives"
+       data-desc="Professional property marketing post designed to attract buyers."
+       data-tag="Social Media"
+       data-image="Real Estate Post.jpg">
+
+    <div class="project-img-wrap">
+      <div class="project-img">
+        <img src="Real Estate Post.jpg" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">Social Media</span>
+      <h3 class="project-name">Real Estate Social Creatives</h3>
+      <p class="project-desc-short">
+        Professional property marketing post designed to attract buyers.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL MEDIA 5 -->
+  <div class="project-card reveal-up"
+       data-category="social"
+       data-delay="5"
+       data-title="Reel Thumbnail Design"
+       data-desc="Eye-catching thumbnail optimized for higher clicks and views."
+       data-tag="Social Media"
+       data-image="Reel Thumbnail.png">
+
+    <div class="project-img-wrap">
+      <div class="project-img">
+        <img src="Reel Thumbnail.png" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">Social Media</span>
+      <h3 class="project-name">Reel Thumbnail Design</h3>
+      <p class="project-desc-short">
+        Eye-catching thumbnail optimized for higher clicks and views.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- POSTER 1 -->
+  <div class="project-card reveal-up"
+       data-category="posters"
+       data-delay="0"
+       data-title="JAMIE CHASTAIN — Music Festival Poster"
+       data-desc="Modern event poster design with bold typography."
+       data-tag="Poster"
+       data-image="Music Poster.png">
+
+    <div class="project-img-wrap">
+      <div class="project-img">
+        <img src="Music Poster.png" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">JAMIE CHASTAIN — Music Festival Poster</span>
+      <h3 class="project-name">Modern event poster design with bold typography.</h3>
+      <p class="project-desc-short">
+        Promotional event poster.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- POSTER 2 -->
+  <div class="project-card reveal-up"
+       data-category="posters"
+       data-delay="1"
+       data-title="Gold - Cinematic Poster Concept"
+       data-desc="Dark and immersive film poster design inspired by classic mystery and western cinema."
+       data-tag="Poster"
+       data-image="Brown Mystery Movie Poster .png">
+
+    <div class="project-img-wrap">
+      <div class="project-img">
+        <img src="Brown Mystery Movie Poster .png" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">Poster</span>
+      <h3 class="project-name">Gold - Cinematic Poster Concept</h3>
+      <p class="project-desc-short">
+        Dark and immersive film poster design inspired by classic mystery and western cinema.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ADVERTISING -->
+  <div class="project-card reveal-up"
+       data-category="advertising"
+       data-delay="2"
+       data-title="Billboard Campaign"
+       data-desc="Modern outdoor advertising design for landscaping and garden maintenance services."
+       data-tag="Advertising"
+       data-image="bILL BOARD DESIGN.png">
+
+    <div class="project-img-wrap">
+      <div class="project-img">
+        <img src="bILL BOARD DESIGN.png" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">Advertising</span>
+      <h3 class="project-name">Billboard Campaign</h3>
+      <p class="project-desc-short">
+        Modern outdoor advertising design for landscaping and garden maintenance services.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- UI DESIGN 1 -->
+  <div class="project-card reveal-up"
+       data-category="ui"
+       data-delay="3"
+       data-title="Collective Finance App"
+       data-desc="Modern fintech mobile app focused on banking, cards, and investments."
+       data-tag="UI Design"
+       data-image="Mobile Ui.png">
+
+    <div class="project-img-wrap">
+      <div class="project-img">
+        <img src="Mobile Ui.png" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">UI Design</span>
+      <h3 class="project-name">Collective Finance App</h3>
+      <p class="project-desc-short">
+        Modern fintech mobile app focused on banking, cards, and investments.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- UI DESIGN 2 -->
+  <div class="project-card reveal-up"
+       data-category="ui"
+       data-delay="4"
+       data-title="TechFlow – SaaS Landing Page"
+       data-desc="Modern SaaS landing page designed to showcase features, drive conversions, and enhance user engagement."
+       data-tag="UI Design"
+       data-image="Techflow Landing Page.png">
+
+    <div class="project-img-wrap">
+      <div class="project-img">
+        <img src="Techflow Landing Page.png" alt="">
+      </div>
+
+      <div class="project-overlay">
+        <button class="project-open-btn">
+          <i class="ri-eye-line"></i>
+          Preview
+        </button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <span class="project-tag">UI Design</span>
+      <h3 class="project-name">TechFlow – SaaS Landing Page</h3>
+      <p class="project-desc-short">
+        Modern SaaS landing page designed to showcase features, drive conversions, and enhance user engagement.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =========================================================
+     PROJECT MODAL
+========================================================= -->
+
+<div class="modal-overlay hidden" id="projectModal">
+
+  <div class="modal-box">
+
+    <button class="modal-close" id="modalClose">
+      <i class="ri-close-line"></i>
+    </button>
+
+    <div class="modal-img-wrap" id="modalImgWrap"></div>
+
+    <div class="modal-body">
+
+      <span class="project-tag" id="modalTag"></span>
+
+      <h3 class="modal-title" id="modalTitle"></h3>
+
+      <p class="modal-desc" id="modalDesc"></p>
+
+    </div>
+
+  </div>
+
+</div>
+  <!-- PROJECT MODAL -->
+  <div id="projectModal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <button id="modalClose" class="modal-close"><i class="ri-close-line"></i></button>
+      <div class="modal-img-wrap" id="modalImgWrap"></div>
+      <div class="modal-body">
+        <span class="project-tag" id="modalTag"></span>
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <p class="modal-desc" id="modalDesc"></p>
+        <a href="#contact" class="btn-primary mt-6 inline-flex" id="modalCta">
+          Get Similar Project <i class="ri-arrow-right-up-line ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="py-24 relative overflow-hidden">
+    <div class="section-glow section-glow-right"></div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Packages</span>
+        <h2 class="section-title">Service <span class="text-gradient">Packages</span></h2>
+        <p class="section-sub">Transparent pricing for every stage of your brand journey.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Starter -->
+        <div class="pricing-card reveal-up" data-delay="0">
+          <div class="pricing-top">
+            <span class="pricing-badge">Starter</span>
+            <div class="pricing-price">₹4,999</div>
+            <div class="pricing-period">per project</div>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="ri-check-line"></i>10 Social Media Creatives</li>
+            <li><i class="ri-check-line"></i>Posts, Stories & Ads Creatives</li>
+            <li><i class="ri-check-line"></i>Brand-Focused Design Approach</li>
+            <li><i class="ri-check-line"></i>Up to 2 Revisions per Creative</li>
+            <li><i class="ri-check-line"></i>Quality - Focused Design Process</li>
+            <li><i class="ri-check-line"></i>JPG / PNG Files</li>
+          </ul>
+          <a href="#contact" class="btn-primary w-full text-center mt-auto">Get Started</a>
+        </div>
+
+        <!-- Growth (Popular) -->
+        <div class="pricing-card pricing-popular reveal-up" data-delay="1">
+          <div class="popular-label">Most Popular</div>
+          <div class="pricing-top">
+            <span class="pricing-badge">Professional</span>
+            <div class="pricing-price text-blue-500">₹9,999</div>
+            <div class="pricing-period">per project</div>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="ri-check-line"></i>25 Social Media Creatives</li>
+            <li><i class="ri-check-line"></i>Posts, Stories, Carousels & Banners</li>
+            <li><i class="ri-check-line"></i>Advanced Creative Designs</li>
+            <li><i class="ri-check-line"></i>Branding Consistency</li>
+            <li><i class="ri-check-line"></i>Priority Support</li>
+            <li><i class="ri-check-line"></i>2 Revisions per Creative</li>
+            <li><i class="ri-check-line"></i>All File Formats</li>
+          </ul>
+          <a href="#contact" class="btn-primary w-full text-center mt-auto">Get Started</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="pricing-card reveal-up" data-delay="2">
+          <div class="pricing-top">
+            <span class="pricing-badge">Premium Brand</span>
+            <div class="pricing-price">₹19,999</div>
+            <div class="pricing-period">per month</div>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="ri-check-line"></i>Up to 40 Social Media Creatives</li>
+            <li><i class="ri-check-line"></i>Monthly Content Planning Assistance</li>
+            <li><i class="ri-check-line"></i>Posts, Stories, Carousels & Banners</li>
+            <li><i class="ri-check-line"></i>Priority Support & Communication</li>
+            <li><i class="ri-check-line"></i>Revision Support overall Creatives</li>
+            <li><i class="ri-check-line"></i>Source Files Included</li>
+          </ul>
+          <a href="#contact" class="btn-primary w-full text-center mt-auto">Get Started</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE ME ===== -->
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Advantages</span>
+        <h2 class="section-title">Why Choose <span class="text-gradient">Me</span></h2>
+        <p class="section-sub">What sets my work apart from the rest.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal-up" data-delay="0">
+          <div class="why-icon"><i class="ri-medal-2-line"></i></div>
+          <h3>Premium Design Quality</h3>
+          <p>Every pixel is intentional. I deliver studio-quality design work for every project size.</p>
+        </div>
+        <div class="why-card reveal-up" data-delay="1">
+          <div class="why-icon"><i class="ri-message-3-line"></i></div>
+          <h3>Fast Communication</h3>
+          <p>Responsive and clear at every stage — no ghosting, no delays, just professional flow.</p>
+        </div>
+        <div class="why-card reveal-up" data-delay="2">
+          <div class="why-icon"><i class="ri-compass-3-line"></i></div>
+          <h3>Modern Creative Direction</h3>
+          <p>Trend-aware design that's rooted in timeless principles for lasting brand impact.</p>
+        </div>
+        <div class="why-card reveal-up" data-delay="3">
+          <div class="why-icon"><i class="ri-focus-2-line"></i></div>
+          <h3>Attention To Detail</h3>
+          <p>Spacing, hierarchy, color harmony — the details that make the difference between good and great.</p>
+        </div>
+        <div class="why-card reveal-up" data-delay="4">
+          <div class="why-icon"><i class="ri-flow-chart"></i></div>
+          <h3>Professional Workflow</h3>
+          <p>Structured process from brief to delivery — organized, on-time, and stress-free for clients.</p>
+        </div>
+        <div class="why-card reveal-up" data-delay="5">
+          <div class="why-icon"><i class="ri-heart-line"></i></div>
+          <h3>Client Satisfaction</h3>
+          <p>I don't close a project until you're genuinely proud to show the world your brand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="py-24 relative overflow-hidden">
+    <div class="section-glow"></div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="about-wrap">
+        <!-- Left: Profile card -->
+        <div class="about-left reveal-up">
+          <div class="about-card">
+            <div class="about-avatar">
+              <div class="avatar-placeholder"><img src="Aswad Logo.png"></div>
+              <div class="avatar-ring"></div>
+            </div>
+            <div class="about-tags">
+              <span><i class="ri-palette-line"></i> Graphic Design</span>
+              <span><i class="ri-brush-line"></i> Branding</span>
+              <span><i class="ri-layout-line"></i> UI/UX</span>
+              <span><i class="ri-film-line"></i> Motion</span>
+            </div>
+            <div class="about-tools">
+              <span>Ps</span><span>Ai</span><span>Canva</span><span>Figma</span><span>Ai</span>
+            </div>
+          </div>
+        </div>
+        <!-- Right: Text -->
+        <div class="about-right reveal-up" data-delay="1">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title mt-3">The Designer<br/><span class="text-gradient">Behind the Work</span></h2>
+          <p class="about-text">
+            I'm <strong>Aswad</strong>, a graphic designer focused on helping brands build a strong visual identity through modern and impactful design solutions.
+          </p>
+          <p class="about-text">
+            With over 2+ years of hands-on experience crafting identities for startups, creators, and established brands, I bring a strategic eye and a cinematic aesthetic to every project. My work isn't just beautiful - it communicates.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <i class="ri-map-pin-line text-blue-500"></i>
+              <span>Based in India, working globally</span>
+            </div>
+            <div class="highlight-item">
+              <i class="ri-time-line text-blue-500"></i>
+              <span>48–72 hour turnaround on most projects</span>
+            </div>
+            <div class="highlight-item">
+              <i class="ri-user-star-line text-blue-500"></i>
+              <span>Trusted by clients with outstanding reviews</span>
+            </div>
+          </div>
+          <div class="flex gap-4 mt-8">
+            <a href="#contact" class="btn-primary">Work With Me <i class="ri-arrow-right-up-line ml-1"></i></a>
+            <a href="#projects" class="btn-outline">View Projects</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Reviews</span>
+        <h2 class="section-title">Client <span class="text-gradient">Testimonials</span></h2>
+        <p class="section-sub">What my clients say about working with me.</p>
+      </div>
+      <div class="testimonial-slider reveal-up">
+        <div class="testimonials-track" id="testimonialsTrack">
+
+          <div class="testi-card">
+            <div class="testi-quote"><i class="ri-double-quotes-l"></i></div>
+            <p>"Aswad completely transformed our brand visuals. The quality, the speed, and the communication were all exceptional. Highly recommend to any serious business."</p>
+            <div class="testi-client">
+              <div class="testi-avatar">RK</div>
+              <div>
+                <div class="testi-name">Rahul Kumar</div>
+                <div class="testi-role">Founder, TechLaunch</div>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-quote"><i class="ri-double-quotes-l"></i></div>
+            <p>"Best freelance designer I've worked with. He understood our brand perfectly and delivered stunning social media creatives that boosted our engagement by 3x."</p>
+            <div class="testi-client">
+              <div class="testi-avatar">PS</div>
+              <div>
+                <div class="testi-name">Priya Sharma</div>
+                <div class="testi-role">Marketing Head, Zestora</div>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-quote"><i class="ri-double-quotes-l"></i></div>
+            <p>"Our new brand identity is absolutely premium. Aswad's attention to detail and creative thinking are on another level. Will definitely keep working with him."</p>
+            <div class="testi-client">
+              <div class="testi-avatar">AM</div>
+              <div>
+                <div class="testi-name">Arjun Mehta</div>
+                <div class="testi-role">CEO, Craftify Studios</div>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-quote"><i class="ri-double-quotes-l"></i></div>
+            <p>"Incredible work on our ad campaign. Every creative was on-brand, on-time, and exceeded expectations. The ROI on our campaign improved massively."</p>
+            <div class="testi-client">
+              <div class="testi-avatar">NK</div>
+              <div>
+                <div class="testi-name">Neha Kapoor</div>
+                <div class="testi-role">Brand Manager, GlowLab</div>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="testi-controls">
+          <button class="testi-btn" id="testPrev"><i class="ri-arrow-left-line"></i></button>
+          <div class="testi-dots" id="testiDots"></div>
+          <button class="testi-btn" id="testNext"><i class="ri-arrow-right-line"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-24 relative overflow-hidden">
+    <div class="section-glow"></div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">Let's Build Something<br/><span class="text-gradient">Creative Together</span></h2>
+        <p class="section-sub">Ready to elevate your brand? Let's talk.</p>
+      </div>
+
+      <div class="contact-wrap">
+        <!-- Left Info -->
+        <div class="contact-info reveal-up">
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="ri-mail-line"></i></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <a href="mailto:aswad.uiux@gmail.com" class="contact-value">aswad.uiux@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="ri-whatsapp-line"></i></div>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <a href="https://wa.me/919599551776" target="_blank" class="contact-value">+91 9599551776</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="ri-time-line"></i></div>
+            <div>
+              <div class="contact-label">Response Time</div>
+              <div class="contact-value">Within 24 hours</div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="mailto:aswad.uiux@gmail.com" class="social-link" aria-label="Email"><i class="ri-mail-line"></i></a>
+            <a href="https://wa.me/919599551776" target="_blank" class="social-link" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form-wrap reveal-up" data-delay="1">
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" name="name" placeholder="Enter Your Name" required/>
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="Enter Your Email" required/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Project Type</label>
+                <select name="project">
+                  <option value="">Select project type</option>
+                  <option>Brand Identity</option>
+                  <option>Social Media Creatives</option>
+                  <option>Poster / Banner Design</option>
+                  <option>Ad Campaign</option>
+                  <option>UI Design</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Budget</label>
+                <select name="budget">
+                  <option value="">Select budget range</option>
+                  <option>Under ₹5,000</option>
+                  <option>₹5,000 – ₹10,000</option>
+                  <option>₹10,000 – ₹20,000</option>
+                  <option>₹20,000+</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" rows="5" placeholder="Tell me about your project..."></textarea>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 mt-4">
+              <button type="submit" class="btn-primary flex-1 justify-center">
+                <i class="ri-send-plane-fill mr-2"></i> Send Message
+              </button>
+              <a href="https://wa.me/919599551776" target="_blank" class="btn-whatsapp flex-1 justify-center">
+                <i class="ri-whatsapp-line mr-2"></i> WhatsApp Me
+              </a>
+            </div>
+            <div id="formSuccess" class="form-success hidden">
+              <i class="ri-check-double-line"></i> Message sent! I'll get back to you shortly.
+            </div>
+            <div id="formError" class="form-error hidden">
+              <i class="ri-error-warning-line"></i> Failed to send. Please WhatsApp or email directly.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="Aswad Logo.png" alt="Aswad Designs" class="footer-logo-img"/>
+          </div>
+          <p>Premium graphic design for brands that demand excellence.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-socials">
+          <a href="mailto:aswad.uiux@gmail.com" aria-label="Email" class="footer-social"><i class="ri-mail-line"></i></a>
+          <a href="https://wa.me/919599551776" target="_blank" aria-label="WhatsApp" class="footer-social"><i class="ri-whatsapp-line"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Aswad Designs. All rights reserved.</span>
+        <span>Crafted with <span class="text-blue-500">♥</span> for premium brands.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
