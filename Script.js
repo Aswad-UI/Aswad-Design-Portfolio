@@ -13,7 +13,7 @@
 (function () {
   "use strict";
 
-  const WEB3FORMS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+  const WEB3FORMS_KEY = "a80d3a6a-d3a5-461b-8489-e762684934af";
 
   /* ──────────────────────────────────────────────────────────
      1. LOADER
